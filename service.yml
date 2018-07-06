@@ -2,14 +2,19 @@ apiVersion: v1
 kind: Service 
 metadata: 
   name: my-tomcat 
+  namespace: default
   labels: 
-    run: tomcat 
+    run: my-tomcat
 spec: 
-  type: NodePort 
+  externalTrafficPolicy: Cluster
   ports: 
-  - port: 8080 
-    targetPort: 9000 
+  - nodePort:
+    port: 8080
+    targetPort: 8080 
     protocol: TCP 
-    name: http 
   selector: 
-    run: tomcat
+    run: my-tomcat
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
