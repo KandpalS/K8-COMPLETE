@@ -8,7 +8,7 @@ spec:
   rules: 
   - http: 
       paths: 
-      - path: /tomcattest 
+      - path: /tomcattest/ 
         backend: 
           serviceName: my-tomcat 
           servicePort: 8080
