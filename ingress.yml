@@ -1,13 +1,14 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-name: my-tomcat
-namespace: default
-spec:
-rules:
-- http:
-paths:
-- backend:
-serviceName: my-tomcat
-servicePort: 8080
-path: /
+apiVersion: extensions/v1beta1 
+kind: Ingress 
+metadata: 
+  name: my-tomcat 
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: / 
+spec: 
+  rules: 
+  - http: 
+      paths: 
+      - path: /tomcattest 
+        backend: 
+          serviceName: my-tomcat 
+          servicePort: 8080
