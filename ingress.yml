@@ -1,12 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: my-tomcat
+name: my-tomcat
+namespace: default
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /my-tomcat
-        backend:
-          serviceName: my-tomcat
-          servicePort: 8080
+rules:
+- http:
+paths:
+- backend:
+serviceName: tomcat
+servicePort: 8080
+path: /
