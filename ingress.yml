@@ -8,6 +8,6 @@ rules:
 - http:
 paths:
 - backend:
-serviceName: tomcat
+serviceName: my-tomcat
 servicePort: 8080
 path: /
